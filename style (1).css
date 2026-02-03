@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Animated Gradient Background */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, #ff6a00, #ee0979, #ff6a00, #ee0979);
+  background-size: 800% 800%;
+  animation: GradientAnimation 15s ease infinite;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+@keyframes GradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.form-container input {
+  width: 100%;
+  box-sizing: border-box;
+}
+ span, p {
+ white-space: normal;
+  text-align: center; /* Optional: center-align the overlay text */}
+h2{
+  display: flex;
+  justify-content: center;
+    align-items: center;
+}
+/* Forms */
+form {
+  position: relative;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  gap: 12px;
+}
+
+
+/* Form Titles */
+h1 {
+  white-space: nowrap;
+
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* Labels */
+label {
+  font-size: 14px;
+  text-align: left;
+  margin: 10px 0 5px 0;
+  user-select: none;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+  min-width: 0; /* Prevent overflow on small screens */
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s ease;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.1);
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 0 10px #ff6a00;
+  border: 1px solid #ff6a00;
+}
+
+/* Buttons */
+button {
+  border-radius: 20px;
+  border: 1px solid #ff6a00;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  font-weight: 700;
+  padding: 12px 0;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:transform 80ms ease-in ;
+  font-size: 12px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.7);
+}
+
+button:hover {
+ background: transparent;
+  border-color: white;
+  box-shadow: none;
+  padding: 14px 30px;       /* Increased padding */
+  font-size: 14px;          /* Slightly bigger text */
+  letter-spacing: 1.2px;    /* Optional: nicer spacing */
+  border-radius: 25px;      /* Optional: softer pill shape */
+  transition: all 0.3s ease;
+  
+}
+
+/* Ghost buttons */
+button.ghost {
+  background: transparent;
+  border-color: white;
+  box-shadow: none;
+
+  padding: 16px 40px !important;
+  font-size: 16px !important;
+  border-radius: 30px;
+  letter-spacing: 1.2px;
+  transition: all 0.3s ease;
+}
+#signUp.ghost {
+  padding: 16px 40px !important;
+  font-size: 16px !important;
+  border-radius: 30px !important;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+  width: auto !important;
+  transition: all 0.3s ease;
+}
+
+
+button.ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Form container positions */
+.form-container {
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  height:100%;
+  width: 50%;
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.sign-in-container {
+  left: 0;
+  z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+.sign-up-container {
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+    transition: all 0.6s ease-in-out;
+      pointer-events: all;
+      
+      
+
+
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* Add right padding so text doesn't overlap icon */
+  box-sizing: border-box;
+}
+
+.password-wrapper .toggle-pass {
+  position: absolute;
+  top: 50%;
+  right: 12px;      /* Distance from the right edge */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.password-wrapper .toggle-pass:hover {
+  color: #ff6a00;
+}
+
+
+.container.right-panel-active .sign-up-container {
+ transform: translateX(100%);
+  opacity: 0;
+pointer-events: none;
+  z-index: 5;
+
+}
+
+@keyframes show {
+  0%, 49.99% { opacity: 0; z-index: 1; }
+  50%, 100% { opacity: 1; z-index: 5; }
+}
+
+/* Overlay styles */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+.overlay-panel h1 {
+  margin-bottom: 20px;  /* Add space below the heading */
+  white-space: normal;  /* Ensure it wraps normally */
+}
+
+.overlay-panel p {
+  margin-bottom: 30px;  /* Space below the paragraph */
+  white-space: normal;  /* Allow wrapping */
+  padding: 0 10px;      /* Optional horizontal padding */
+  line-height: 1.5;     /* Improve readability */
+}
+
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+border-radius: 20px;
+
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:  10px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Social icons */
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  height: 40px;
+  width: 40px;
+  color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+}
+
+.social-container a:hover {
+  background-color: #ff6a00;
+  border-color: #ff6a00;
+  color: white;
+  box-shadow: 0 0 10px #ff6a00;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+  padding: 10px 0;
+  backdrop-filter: blur(5px);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer i {
+  color: red;
+}
+
+footer a {
+  color: #3c97bf;
+  text-decoration: none;
+}
